@@ -1,9 +1,9 @@
 {
-    "name": "digikraaft/laravel-paystack-webhooks",
+    "name": "oladejihenry/laravel-paystack-webhooks",
     "repositories": [
         {
-            "type": "git",
-            "url": "https://github.com/oladejihenry/laravel-paystack-webhooks"
+            "type": "vcs",
+            "url": "https://github.com/oladejihenry/laravel-paystack-webhooks.git"
         }
     ],
     "description": "Handle Paystack webhooks in a Laravel application",
@@ -15,21 +15,18 @@
         "billing",
         "payment"
     ],
-    "homepage": "https://github.com/digikraaft/laravel-paystack-webhooks",
+    "homepage": "https://github.com/oladejihenry/laravel-paystack-webhooks",
     "license": "MIT",
     "authors": [
         {
-            "name": "Tim Oladoyinbo",
-            "email": "dev@digikraaft.ng",
-            "homepage": "https://digikraaft.com",
-            "role": "Developer"
+            "name": "Henry",
+            "email": "henryoladeji2007@gmail.com"
         }
     ],
     "require": {
         "php": "^8.0|^8.1|^8.2",
         "guzzlehttp/guzzle": "^7.3",
-        "laravel/framework": "^9.0|^10.0",
-        "digikraaft/laravel-paystack-webhooks": "dev-master"
+        "laravel/framework": "^9.0|^10.0"
     },
     "require-dev": {
         "orchestra/testbench": "^7.0",
