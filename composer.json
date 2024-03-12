@@ -1,5 +1,11 @@
 {
     "name": "oladejihenry/laravel-paystack-webhooks",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "https://github.com/oladejihenry/laravel-paystack-webhooks"
+        }
+    ],
     "description": "Handle Paystack webhooks in a Laravel application",
     "keywords": [
         "digikraaft",
@@ -48,12 +54,6 @@
     "config": {
         "sort-packages": true
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/oladejihenry/laravel-paystack-webhooks"
-        }
-    ],
     "extra": {
         "laravel": {
             "providers": [
