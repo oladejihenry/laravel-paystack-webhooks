@@ -23,7 +23,7 @@
         "php": "^8.0|^8.1|^8.2",
         "guzzlehttp/guzzle": "^7.3",
         "laravel/framework": "^9.0|^10.0|^11.0",
-        "oladejihenry/laravel-paystack": "dev-master"
+        "oladejihenry/laravel-paystack": "master"
     },
     "require-dev": {
         "orchestra/testbench": "^7.0",
