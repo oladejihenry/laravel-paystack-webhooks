@@ -2,7 +2,7 @@
     "name": "oladejihenry/laravel-paystack-webhooks",
     "repositories": [
         {
-            "type": "vcs",
+            "type": "git",
             "url": "https://github.com/oladejihenry/laravel-paystack-webhooks"
         }
     ],
@@ -28,7 +28,8 @@
     "require": {
         "php": "^8.0|^8.1|^8.2",
         "guzzlehttp/guzzle": "^7.3",
-        "laravel/framework": "^9.0|^10.0"
+        "laravel/framework": "^9.0|^10.0",
+        "digikraaft/laravel-paystack-webhooks": "dev-master"
     },
     "require-dev": {
         "orchestra/testbench": "^7.0",
