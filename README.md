@@ -1,4 +1,5 @@
 # Handle Paystack Webhooks in a Laravel application
+
 ![tests](https://github.com/digikraaft/laravel-paystack-webhooks/workflows/tests/badge.svg)
 [![Build Status](https://scrutinizer-ci.com/g/digikraaft/laravel-paystack-webhooks/badges/build.png?b=master)](https://scrutinizer-ci.com/g/digikraaft/laravel-paystack-webhooks/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/digikraaft/laravel-paystack-webhooks/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/digikraaft/laravel-paystack-webhooks/?branch=master)
@@ -21,8 +22,11 @@ You can install the package via composer:
 ```bash
 composer require digikraaft/laravel-paystack-webhooks
 ```
+
 #### Configuration File
+
 The Laravel Paystack Webhooks package comes with a configuration file, here is the content of the file:
+
 ```php
 return [
 
@@ -37,7 +41,7 @@ return [
 
     'public_key' => env('PAYSTACK_PUBLIC_KEY'),
 
-    'secret' => env('PAYSTACK_SECRET'),
+    'secret' => env('PAYSTACK_SECRET_KEY'),
 
     /*
    |--------------------------------------------------------------------------
@@ -60,27 +64,32 @@ return [
 
 ];
 ```
+
 You can publish this config file with the following commands:
+
 ```bash
 php artisan vendor:publish --provider="Digikraaft\PaystackWebhooks\PaystackWebhooksServiceProvider" --tag="config"
 ```
 
 ### API Keys
-You should configure your Paystack keys in your .env file. 
+
+You should configure your Paystack keys in your .env file.
 You can get your Paystack API keys from the Paystack dashboard.
+
 ```dotenv
 PAYSTACK_PUBLIC_KEY=your-paystack-public-key
-PAYSTACK_SECRET=your-paystack-secret
+PAYSTACK_SECRET_KEY=your-paystack-secret
 ```
 
 # Handling Paystack Webhooks
+
 [Paystack](https://paystack.com/) can notify your application about various events via webhooks. This package can
 help you handle those webhooks. It will automatically verify all incoming requests and ensure they are coming
 from Paystack. By default, a route that points to this package's webhook controller is configured through the service provider.
 
 Please note that this package will NOT handle what should be done after the request has been validated. You
-should still write the code for that. All you need do is to extend the controller in order to handle 
-any webhook event you like. For example, if you wish to handle the `charge.success` event, 
+should still write the code for that. All you need do is to extend the controller in order to handle
+any webhook event you like. For example, if you wish to handle the `charge.success` event,
 you should add a `handleChargeSuccess` method to the controller:
 
 ```php
@@ -105,7 +114,7 @@ class WebhookController extends PaystackWebhooksController
 }
 ```
 
-To ensure your application can handle Paystack webhooks, be sure to configure the webhook URL in the Paystack dashboard. 
+To ensure your application can handle Paystack webhooks, be sure to configure the webhook URL in the Paystack dashboard.
 By default, this package's webhook controller listens to the `/paystack/webhook`.
 
 Next, define a route to your controller within your `routes/web.php` file.
@@ -118,43 +127,54 @@ Route::post(
 ```
 
 ### Webhooks & CSRF Protection
-Since Paystack webhooks need to bypass Laravel's CSRF protection, be sure to list the URI as an exception in your 
+
+Since Paystack webhooks need to bypass Laravel's CSRF protection, be sure to list the URI as an exception in your
 `VerifyCsrfToken` middleware or list the route outside of the `web` middleware group:
+
 ```
 protected $except = [
     'paystack/*',
 ];
 ```
 
-This package emits a `Digikraaft\PaystackWebhooks\Events\WebhookReceived` event when a webhook is received, 
-and a `Digikraaft\PaystackWebhooks\Events\WebhookHandled` event when a webhook was handled by you. 
+This package emits a `Digikraaft\PaystackWebhooks\Events\WebhookReceived` event when a webhook is received,
+and a `Digikraaft\PaystackWebhooks\Events\WebhookHandled` event when a webhook was handled by you.
 Both events contain the full payload of the Paystack webhook.
 
 You can find details about Paystack events [here](https://paystack.com/docs/payments/webhooks/#supported-events)
 
 ### Verifying Webhook Signatures
+
 For convenience, this package automatically includes a middleware which validates that the incoming Paystack webhook request is valid.
 
 ## Testing
+
 Use the command below to run your tests:
-``` bash
+
+```bash
 composer test
 ```
+
 ## More Good Stuff
+
 Check [here](https://github.com/digikraaft) for more awesome free stuff!
 
 ## Changelog
+
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
+
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
+
 If you discover any security related issues, please email dev@digitalkraaft.com instead of using the issue tracker.
 
 ## Credits
-- [Tim Oladoyinbo](https://github.com/timoladoyinbo)
-- [All Contributors](../../contributors)
+
+-   [Tim Oladoyinbo](https://github.com/timoladoyinbo)
+-   [All Contributors](../../contributors)
 
 ## License
 

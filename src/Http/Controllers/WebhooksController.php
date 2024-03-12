@@ -16,7 +16,7 @@ class WebhooksController extends Controller
 
     public function __construct()
     {
-        if (config('paystackwebhooks.secret', env('PAYSTACK_SECRET'))) {
+        if (config('paystackwebhooks.secret', env('PAYSTACK_SECRET_KEY'))) {
             $this->middleware(VerifyWebhookSignature::class);
         }
     }
@@ -25,7 +25,7 @@ class WebhooksController extends Controller
     public function handleWebhook(Request $request): \Symfony\Component\HttpFoundation\Response
     {
         $payload = json_decode($request->getContent(), true);
-        $method = 'handle'.Str::studly(str_replace('.', '_', $payload['event']));
+        $method = 'handle' . Str::studly(str_replace('.', '_', $payload['event']));
 
         WebhookReceived::dispatch($payload);
 
@@ -34,7 +34,7 @@ class WebhooksController extends Controller
 
             WebhookHandled::dispatch($payload);
 
-            return $response;
+            return $response ?? $this->successMethod();
         }
 
         return $this->missingMethod();
