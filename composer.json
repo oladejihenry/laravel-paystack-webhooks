@@ -3,7 +3,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/oladejihenry/laravel-paystack-webhooks.git"
+            "url": "https://github.com/oladejihenry/laravel-paystack-webhooks"
         }
     ],
     "description": "Handle Paystack webhooks in a Laravel application",
