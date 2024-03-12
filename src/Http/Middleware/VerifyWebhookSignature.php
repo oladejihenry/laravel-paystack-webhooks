@@ -12,7 +12,7 @@ class VerifyWebhookSignature
     public function handle($request, Closure $next): Response
     {
         // validate that callback is coming from Paystack
-        if ((!$request->isMethod('post')) || !$request->header('x-paystack-signatureE', null)) {
+        if ((!$request->isMethod('post')) || !$request->header('x-paystack-signature', null)) {
             throw new AccessDeniedHttpException("Invalid Request");
         }
 
