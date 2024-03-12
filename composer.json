@@ -1,5 +1,5 @@
 {
-    "name": "digikraaft/laravel-paystack-webhooks",
+    "name": "oladejihenry/laravel-paystack",
     "description": "Handle Paystack webhooks in a Laravel application",
     "keywords": [
         "digikraaft",
@@ -9,7 +9,7 @@
         "billing",
         "payment"
     ],
-    "homepage": "https://github.com/digikraaft/laravel-paystack-webhooks",
+    "homepage": "https://github.com/oladejihenry/laravel-paystack",
     "license": "MIT",
     "authors": [
         {
